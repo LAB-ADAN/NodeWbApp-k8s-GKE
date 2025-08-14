@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodewb-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodewb-app
+  template:
+    metadata:
+      labels:
+        app: nodewb-app
+    spec:
+      containers:
+      - name: nodewb-container
+        image: labadan/mynodewb:1.0
+        ports:
+        - containerPort: 8080
